@@ -1,0 +1,1268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="88f371eb-597c-4cc5-aa10-a507d5b4775c" activeEnvironment="Default" name="Projet2WS-Libreplan" resourceRoot="${projectDir}" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="344b28fb-f22f-4894-8826-9868072dedfe" wadlVersion="http://research.sun.com/wadl/2006/10" name="Projet2WS-Libreplan" type="rest" basePath="/libreplan//ws/rest/" definitionUrl="C:\Users\poste1\Documents\SOAPUI\Libreplan\localhost.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/poste1/Documents/SOAPUI/Libreplan/localhost.xml"><con:part><con:url>file:/C:/Users/poste1/Documents/SOAPUI/Libreplan/localhost.xml</con:url><con:content><![CDATA[<application xmlns="http://research.sun.com/wadl/2006/10" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <grammars>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://rest.ws.libreplan.org" xmlns:tns="http://rest.ws.libreplan.org">
+      <xs:element name="base-calendar" type="tns:baseCalendarDTO"/>
+      <xs:element name="base-calendar-list" type="tns:baseCalendarListDTO"/>
+      <xs:element name="calendar-exception-type" type="tns:calendarExceptionTypeDTO"/>
+      <xs:element name="calendar-exception-type-list" type="tns:calendarExceptionTypeListDTO"/>
+      <xs:element name="cost-category" type="tns:costCategoryDTO"/>
+      <xs:element name="cost-category-list" type="tns:costCategoryListDTO"/>
+      <xs:element name="criterion-requirement" type="tns:criterionRequirementDTO"/>
+      <xs:element name="criterion-type" type="tns:criterionTypeDTO"/>
+      <xs:element name="criterion-type-list" type="tns:criterionTypeListDTO"/>
+      <xs:element name="direct-criterion-requirement" type="tns:directCriterionRequirementDTO"/>
+      <xs:element name="indirect-criterion-requirement" type="tns:indirectCriterionRequirementDTO"/>
+      <xs:element name="instance-constraint-violations-list" type="tns:instanceConstraintViolationsListDTO"/>
+      <xs:element name="internal-error" type="tns:internalErrorDTO"/>
+      <xs:element name="label" nillable="true" type="xs:anyType"/>
+      <xs:element name="label-type" type="tns:labelTypeDTO"/>
+      <xs:element name="label-type-list" type="tns:labelTypeListDTO"/>
+      <xs:element name="machine" type="tns:machineDTO"/>
+      <xs:element name="material-category" type="tns:materialCategoryDTO"/>
+      <xs:element name="material-category-list" type="tns:materialCategoryListDTO"/>
+      <xs:element name="order" type="tns:orderDTO"/>
+      <xs:element name="order-element" type="tns:orderElementWithAdvanceMeasurementsOrEndDateDTO"/>
+      <xs:element name="order-element-list" type="tns:orderElementWithAdvanceMeasurementsOrEndDateListDTO"/>
+      <xs:element name="order-line" type="tns:orderLineDTO"/>
+      <xs:element name="order-line-group" type="tns:orderLineGroupDTO"/>
+      <xs:element name="order-list" type="tns:orderListDTO"/>
+      <xs:element name="personal-timesheet-entry" type="tns:personalTimesheetEntryDTO"/>
+      <xs:element name="personal-timesheet-entry-list" type="tns:personalTimesheetEntryListDTO"/>
+      <xs:element name="resource-list" type="tns:resourceListDTO"/>
+      <xs:element name="resource-worked-hours" type="tns:resourceWorkedHoursDTO"/>
+      <xs:element name="resource-worked-hours-list" type="tns:resourceWorkedHoursListDTO"/>
+      <xs:element name="subcontracted-task-data" type="tns:subcontractedTaskDataDTO"/>
+      <xs:element name="task" type="tns:taskDTO"/>
+      <xs:element name="task-list" type="tns:taskListDTO"/>
+      <xs:element name="type-work-hours" type="tns:typeOfWorkHoursDTO"/>
+      <xs:element name="type-work-hours-list" type="tns:typeOfWorkHoursListDTO"/>
+      <xs:element name="unit-type" type="tns:unitTypeDTO"/>
+      <xs:element name="unit-type-list" type="tns:unitTypeListDTO"/>
+      <xs:element name="work-report" type="tns:workReportDTO"/>
+      <xs:element name="work-report-line" type="tns:workReportLineDTO"/>
+      <xs:element name="work-report-list" type="tns:workReportListDTO"/>
+      <xs:element name="worker" type="tns:workerDTO"/>
+      <xs:complexType name="baseCalendarListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:base-calendar"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="baseCalendarDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="calendar-exception-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="calendar-exception" type="tns:calendarExceptionDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="calendar-data-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="calendar-data" type="tns:calendarDataDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="parent" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="integrationEntityDTO">
+        <xs:sequence/>
+        <xs:attribute name="code" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="calendarExceptionDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="date" type="xs:anySimpleType"/>
+            <xs:attribute name="hours" type="xs:int"/>
+            <xs:attribute name="calendar-exception-type-code" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="calendarDataDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="hours-per-day-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="hours-per-day" type="tns:hoursPerDayDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="expiring-date" type="xs:anySimpleType"/>
+            <xs:attribute name="parent-calendar" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="hoursPerDayDTO">
+        <xs:sequence/>
+        <xs:attribute name="day" type="xs:string"/>
+        <xs:attribute name="hours" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="resourceWorkedHoursListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:resource-worked-hours"/>
+        </xs:sequence>
+        <xs:attribute name="start-date" type="xs:dateTime"/>
+        <xs:attribute name="end-date" type="xs:dateTime"/>
+      </xs:complexType>
+      <xs:complexType name="resourceWorkedHoursDTO">
+        <xs:sequence/>
+        <xs:attribute name="resource" type="xs:string"/>
+        <xs:attribute name="hours" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="costCategoryListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:cost-category"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="costCategoryDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="hour-cost-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="hour-cost" type="tns:hourCostDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="hourCostDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="priceCost" type="xs:decimal"/>
+            <xs:attribute name="initDate" type="xs:anySimpleType"/>
+            <xs:attribute name="endDate" type="xs:anySimpleType"/>
+            <xs:attribute name="work-hours-type" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="instanceConstraintViolationsListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="instance-constraint-violations" type="tns:instanceConstraintViolationsDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="instanceConstraintViolationsDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="constraint-violation" type="tns:constraintViolationDTO"/>
+          <xs:element minOccurs="0" name="recoverable-error" type="tns:recoverableErrorDTO"/>
+          <xs:element minOccurs="0" ref="tns:internal-error"/>
+        </xs:sequence>
+        <xs:attribute name="instance-id" type="xs:string"/>
+        <xs:attribute name="num-item" type="xs:long"/>
+        <xs:attribute name="code" type="xs:string"/>
+        <xs:attribute name="entity-type" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="constraintViolationDTO">
+        <xs:sequence/>
+        <xs:attribute name="field-name" type="xs:string"/>
+        <xs:attribute name="message" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="recoverableErrorDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:propertyDTO"/>
+        </xs:sequence>
+        <xs:attribute name="error-code" type="xs:int" use="required"/>
+        <xs:attribute name="message" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="propertyDTO">
+        <xs:sequence/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="value" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="internalErrorDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="stack-trace" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="message" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="orderListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:order"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="orderDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:orderLineGroupDTO">
+            <xs:sequence/>
+            <xs:attribute name="dependencies-constraints-have-priority" type="xs:boolean"/>
+            <xs:attribute name="calendar-name" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="orderLineGroupDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:orderElementDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="children">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                      <xs:element ref="tns:order-line"/>
+                      <xs:element ref="tns:order-line-group"/>
+                      <xs:element ref="tns:order"/>
+                    </xs:choice>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="orderElementDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="labels">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:label"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="material-assignments">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="material-assignment" type="tns:materialAssignmentDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="advance-measurements">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="advance-measurement" type="tns:advanceMeasurementDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="criterion-requirements">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                      <xs:element ref="tns:direct-criterion-requirement"/>
+                      <xs:element ref="tns:indirect-criterion-requirement"/>
+                    </xs:choice>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="init-date" type="xs:anySimpleType"/>
+            <xs:attribute name="deadline" type="xs:anySimpleType"/>
+            <xs:attribute name="description" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="orderLineDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:orderElementDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="hours-groups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="hours-group" type="tns:hoursGroupDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="hoursGroupDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="criterion-requirements">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice maxOccurs="unbounded" minOccurs="0">
+                  <xs:element ref="tns:direct-criterion-requirement"/>
+                  <xs:element ref="tns:indirect-criterion-requirement"/>
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:string"/>
+        <xs:attribute name="resource-type" type="tns:resourceEnumDTO"/>
+        <xs:attribute name="working-hours" type="xs:int"/>
+      </xs:complexType>
+      <xs:complexType name="directCriterionRequirementDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:criterionRequirementDTO">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="criterionRequirementDTO">
+        <xs:sequence/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="type" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="indirectCriterionRequirementDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:criterionRequirementDTO">
+            <xs:sequence/>
+            <xs:attribute name="valid" type="xs:boolean" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="labelReferenceDTO">
+        <xs:sequence/>
+        <xs:attribute name="code" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="materialAssignmentDTO">
+        <xs:sequence/>
+        <xs:attribute name="material-code" type="xs:string"/>
+        <xs:attribute name="units" type="xs:decimal"/>
+        <xs:attribute name="unit-price" type="xs:decimal"/>
+        <xs:attribute name="estimated-availability" type="xs:anySimpleType"/>
+      </xs:complexType>
+      <xs:complexType name="advanceMeasurementDTO">
+        <xs:sequence/>
+        <xs:attribute name="date" type="xs:anySimpleType"/>
+        <xs:attribute name="value" type="xs:decimal"/>
+      </xs:complexType>
+      <xs:complexType name="materialCategoryListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:material-category"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="materialCategoryDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="children" type="tns:materialCategoryListDTO"/>
+              <xs:element minOccurs="0" name="material-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="material" type="tns:materialDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="parent" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="materialDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="description" type="xs:string"/>
+            <xs:attribute name="price" type="xs:decimal"/>
+            <xs:attribute name="unit-type" type="xs:string"/>
+            <xs:attribute name="disabled" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="unitTypeListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:unit-type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="unitTypeDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="measure" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="taskListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:task"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="taskDTO">
+        <xs:sequence/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="code" type="xs:string"/>
+        <xs:attribute name="project-code" type="xs:string"/>
+        <xs:attribute name="project-name" type="xs:string"/>
+        <xs:attribute name="start-date" type="xs:anySimpleType"/>
+        <xs:attribute name="end-date" type="xs:anySimpleType"/>
+        <xs:attribute name="progress-value" type="xs:decimal"/>
+        <xs:attribute name="progress-date" type="xs:anySimpleType"/>
+        <xs:attribute name="effort" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="personalTimesheetEntryListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:personal-timesheet-entry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="personalTimesheetEntryDTO">
+        <xs:sequence/>
+        <xs:attribute name="task" type="xs:string"/>
+        <xs:attribute name="date" type="xs:anySimpleType"/>
+        <xs:attribute name="effort" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="calendarExceptionTypeListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:calendar-exception-type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="calendarExceptionTypeDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="color" type="tns:calendarExceptionTypeColorDTO"/>
+            <xs:attribute name="over-assignable" type="xs:boolean" use="required"/>
+            <xs:attribute name="duration" type="xs:int" use="required"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="orderElementWithAdvanceMeasurementsOrEndDateListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:order-element"/>
+        </xs:sequence>
+        <xs:attribute name="external-company-nif" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="orderElementWithAdvanceMeasurementsOrEndDateDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="advance-measurements">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="advance-measurement" type="tns:advanceMeasurementDTO"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="end-date-communication-to-customer" type="tns:endDateCommunicationToCustomerDTO"/>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="endDateCommunicationToCustomerDTO">
+        <xs:sequence/>
+        <xs:attribute name="communicationDate" type="xs:anySimpleType"/>
+        <xs:attribute name="endDate" type="xs:anySimpleType"/>
+        <xs:attribute name="saveDate" type="xs:anySimpleType"/>
+      </xs:complexType>
+      <xs:complexType name="resourceListDTO">
+        <xs:sequence>
+          <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element ref="tns:worker"/>
+            <xs:element ref="tns:machine"/>
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="workerDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:resourceDTO">
+            <xs:sequence/>
+            <xs:attribute name="first-name" type="xs:string"/>
+            <xs:attribute name="surname" type="xs:string"/>
+            <xs:attribute name="nif" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="resourceDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="calendar" type="tns:resourceCalendarDTO"/>
+              <xs:element minOccurs="0" name="criterion-satisfaction-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="criterion-satisfaction" type="tns:criterionSatisfactionDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="resources-cost-category-assignment-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="resources-cost-category-assignment" type="tns:resourcesCostCategoryAssignmentDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="resourceCalendarDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseCalendarDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="calendar-availability-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="calendar-availability" type="tns:calendarAvailabilityDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="capacity" type="xs:int"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="calendarAvailabilityDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="startDate" type="xs:dateTime"/>
+            <xs:attribute name="endDate" type="xs:dateTime"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="criterionSatisfactionDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="criterion-type-name" type="xs:string"/>
+            <xs:attribute name="criterion-name" type="xs:string"/>
+            <xs:attribute name="start-date" type="xs:date"/>
+            <xs:attribute name="end-date" type="xs:date"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="resourcesCostCategoryAssignmentDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="cost-category-name" type="xs:string"/>
+            <xs:attribute name="start-date" type="xs:date"/>
+            <xs:attribute name="end-date" type="xs:date"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="machineDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:resourceDTO">
+            <xs:sequence/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="description" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="typeOfWorkHoursListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:type-work-hours"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="typeOfWorkHoursDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="defaultPrice" type="xs:decimal"/>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="labelTypeListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:label-type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="labelTypeDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="label-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:label"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="labelDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="name" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="subcontractedTaskDataDTO">
+        <xs:sequence>
+          <xs:choice minOccurs="0">
+            <xs:element ref="tns:order-line"/>
+            <xs:element ref="tns:order-line-group"/>
+            <xs:element ref="tns:order"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:attribute name="external-company-nif" type="xs:string"/>
+        <xs:attribute name="work-description" type="xs:string"/>
+        <xs:attribute name="subcontracted-price" type="xs:decimal"/>
+        <xs:attribute name="subcontracted-code" type="xs:string"/>
+        <xs:attribute name="deliver-date" type="xs:anySimpleType"/>
+      </xs:complexType>
+      <xs:complexType name="workReportListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:work-report"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="workReportDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="label-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:label"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="text-field-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="text-field" type="tns:descriptionValueDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="work-report-line-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:work-report-line"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="work-report-type" type="xs:string"/>
+            <xs:attribute name="date" type="xs:anySimpleType"/>
+            <xs:attribute name="resource" type="xs:string"/>
+            <xs:attribute name="work-order" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="descriptionValueDTO">
+        <xs:sequence/>
+        <xs:attribute name="name" type="xs:string"/>
+        <xs:attribute name="value" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="workReportLineDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="label-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:label"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="text-field-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="text-field" type="tns:descriptionValueDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="date" type="xs:anySimpleType"/>
+            <xs:attribute name="resource" type="xs:string"/>
+            <xs:attribute name="work-order" type="xs:string"/>
+            <xs:attribute name="hour-type" type="xs:string"/>
+            <xs:attribute name="start-hour" type="xs:anySimpleType"/>
+            <xs:attribute name="finish-hour" type="xs:anySimpleType"/>
+            <xs:attribute name="hours" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="criterionTypeListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:criterion-type"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="criterionTypeDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="criterion-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="criterion" type="tns:criterionDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="description" type="xs:string"/>
+            <xs:attribute name="allow-hierarchy" type="xs:boolean"/>
+            <xs:attribute name="allow-simultaneous-criterions-per-resource" type="xs:boolean"/>
+            <xs:attribute name="enabled" type="xs:boolean"/>
+            <xs:attribute name="resource" type="tns:resourceEnumDTO"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="criterionDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="children">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="criterion" type="tns:criterionDTO"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string"/>
+            <xs:attribute name="active" type="xs:boolean"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="resourceEnumDTO">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RESOURCE"/>
+          <xs:enumeration value="WORKER"/>
+          <xs:enumeration value="MACHINE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="calendarExceptionTypeColorDTO">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DEFAULT"/>
+          <xs:enumeration value="RED"/>
+          <xs:enumeration value="GREEN"/>
+          <xs:enumeration value="BLUE"/>
+          <xs:enumeration value="CYAN"/>
+          <xs:enumeration value="MAGENTA"/>
+          <xs:enumeration value="YELLOW"/>
+          <xs:enumeration value="BLACK"/>
+          <xs:enumeration value="ORANGE"/>
+          <xs:enumeration value="PURPLE"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" xmlns:ns1="http://rest.ws.libreplan.org">
+      <xs:import namespace="http://rest.ws.libreplan.org"/>
+      <xs:element name="expense-sheet" type="expenseSheetDTO"/>
+      <xs:element name="expense-sheet-line" type="expenseSheetLineDTO"/>
+      <xs:element name="expense-sheet-list" type="expenseSheetListDTO"/>
+      <xs:element name="update-delivering-date" type="updateDeliveringDateDTO"/>
+      <xs:complexType name="expenseSheetListDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="expense-sheet"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="expenseSheetDTO">
+        <xs:complexContent>
+          <xs:extension base="ns1:integrationEntityDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="expense-sheet-line-list">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="expense-sheet-line"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="description" type="xs:string"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="expenseSheetLineDTO">
+        <xs:complexContent>
+          <xs:extension base="ns1:integrationEntityDTO">
+            <xs:sequence/>
+            <xs:attribute name="concept" type="xs:string"/>
+            <xs:attribute name="value" type="xs:decimal"/>
+            <xs:attribute name="resource" type="xs:string"/>
+            <xs:attribute name="task" type="xs:string"/>
+            <xs:attribute name="date" type="xs:anySimpleType"/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="updateDeliveringDateDTO">
+        <xs:sequence/>
+        <xs:attribute name="customer-reference" type="xs:string"/>
+        <xs:attribute name="external-code" type="xs:string"/>
+        <xs:attribute name="external-company-nif" type="xs:string"/>
+        <xs:attribute name="deliver-date" type="xs:anySimpleType"/>
+      </xs:complexType>
+    </xs:schema>
+  </grammars>
+  <resources base="http://localhost:28080/libreplan//ws/rest/">
+    <resource path="/criteriontypes/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/orderelements/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="DELETE">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/resources/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/subcontracting/subcontract/">
+      <resource path="/create/">
+        <method name="POST">
+          <request>
+            <representation mediaType="application/xml"/>
+          </request>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/update/">
+        <method name="POST">
+          <request>
+            <representation mediaType="application/xml"/>
+          </request>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/subcontracting/reportadvances/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="/resourceshours/">
+      <resource path="/{resourceCode}/{startDate}/{endDate}">
+        <param name="resourceCode" style="template" type="xs:string"/>
+        <param name="startDate" style="template" type="xs:string"/>
+        <param name="endDate" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/{startDate}/{endDate}">
+        <param name="startDate" style="template" type="xs:string"/>
+        <param name="endDate" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/workreports/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/line/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="DELETE">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="DELETE">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/labels/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/costcategories/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/typeofworkhours/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/calendarexceptiontypes/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/calendars/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/materialcategories/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/unittypes/">
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/expenses/">
+      <method name="POST">
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <method name="GET">
+        <response>
+          <representation mediaType="application/xml"/>
+        </response>
+      </method>
+      <resource path="/{code}/">
+        <param name="code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+    <resource path="/bounduser/">
+      <resource path="/mytasks/">
+        <method name="GET">
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/timesheets/">
+        <method name="POST">
+          <request>
+            <representation/>
+          </request>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/timesheets/{task-code}/">
+        <param name="task-code" style="template" type="xs:string"/>
+        <method name="GET">
+          <request/>
+          <response>
+            <representation mediaType="application/xml"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+  </resources>
+</application>]]></con:content><con:type>http://research.sun.com/wadl/2006/10</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:28080</con:endpoint></con:endpoints><con:resource name="/criteriontypes/" path="/criteriontypes/" id="0c6771ba-b9e5-4797-925b-33deff914eef"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="ad4d4a7c-f80a-4bf9-bb6f-4c69425ab401"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="02e8b4f6-8db3-4e69-8303-4170b81a2ba5" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="acc537f0-6138-4d48-a6e9-3c0c58a36d20" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST" id="b5ffc8a1-378c-49f1-8dfe-51c101f05057" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="5dd49931-bc06-499f-a8f4-0a14cb8beb19" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET" id="56103387-e3fc-4619-8e59-cff98ce75f50" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="090ce38e-4a10-475f-bfd9-af6e3a3aa883" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/orderelements/" path="/orderelements" id="cacc1ced-2616-4d50-ae28-a3b3a4e94615"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="62a71b76-41ad-4d81-b28e-2456255ad2fd"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE" id="f96fceda-6174-4cfd-a8a5-a891d4ee6ed6" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="5c7f7608-70eb-4bfe-89fc-d826edf30726" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters><entry key="code" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method><con:method name="GET" id="4e43893d-547b-457e-a38e-6ddfd4df3b3d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="f87c1c06-8ff7-456e-94b9-a2922e32c003" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="GET" id="44cd803b-ab08-4708-9d65-06f0e8b97b5f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="POST" id="58c7a1e0-b81c-4d79-84a2-dc652b58ed75" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="3a0dfd94-b387-44ae-9de2-5e157f827cc4" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/resources/" path="/resources" id="c931f036-c9db-4b36-b781-a2955f692db7"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="20d5044c-6e5c-4447-8668-99715bfba0bb"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="9be5c1d6-b087-43dc-857a-66c7575426ae" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="b25e374b-63c3-46e1-91cd-f9718d82ade6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=38DD6BA2F75AD8179DF087A2EFEBCAD6</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="WORKER0016" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource><con:method name="GET" id="fae56813-008c-40b5-888f-95da1b5a2d1b" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="2bc4e603-660b-4f1b-b9c5-601e733f4115" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//resources/</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="POST" id="523d09a0-7e19-4e54-8e5a-5f05e84b092d" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="ff440f02-4f12-4ce1-b3fb-74892c6bfb5a" mediaType="application/xml" postQueryString="false"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/subcontracting/subcontract/" path="/subcontracting/subcontract/" id="9ca8c057-7d7d-46c2-9850-0d9eba5744df"><con:settings/><con:parameters/><con:resource name="/create/" path="/create/" id="3bdde48f-3aad-4a77-82bd-40913a09632c"><con:settings/><con:parameters/><con:method name="POST" id="c5f94b05-ec3f-4ca8-a8f2-4eed9890cb55" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="11f2d5f0-cf8c-4bd9-8200-96bc05ad25d6" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/update/" path="/update/" id="32fb1cbd-6273-4fde-a5bf-59cf84622f3a"><con:settings/><con:parameters/><con:method name="POST" id="4e16b202-8d08-4990-9011-7bce880842b9" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="91e2f3b8-3519-4d05-b847-618d1c17bcc5" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="/subcontracting/reportadvances/" path="/subcontracting/reportadvances/" id="e5f4efb8-5e6c-4793-86b8-c92e07381586"><con:settings/><con:parameters/><con:method name="POST" id="4b13f00a-a6d0-4cdc-8c1e-ab815c7cdf5e" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="2bf7b61a-ef7b-4ba4-8bb9-c75c26cf2d0d" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/resourceshours/" path="/resourceshours/" id="fdc327c4-ba8e-4608-b752-258ea1d051ca"><con:settings/><con:parameters/><con:resource name="/{resourceCode}/{startDate}/{endDate}" path="/{resourceCode}/{startDate}/{endDate}" id="adbe5630-4e73-4c62-9340-1bf2c86a06db"><con:settings/><con:parameters><con:parameter><con:name>resourceCode</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter><con:parameter><con:name>startDate</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter><con:parameter><con:name>endDate</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="94133da5-c09a-4541-81db-9122d04dd71b" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="07dac4ea-fb25-4fad-b745-93cd40527c41" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/{startDate}/{endDate}" path="/{startDate}/{endDate}" id="eac2c090-0464-48f9-a6b3-bb24fef8833e"><con:settings/><con:parameters><con:parameter><con:name>startDate</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter><con:parameter><con:name>endDate</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="87cd12f2-ee95-409b-814a-c48dd8ec6d34" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="ff87eea4-dabc-498a-a602-6b822f44278f" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:resource><con:resource name="/workreports/" path="/workreports/" id="e3cfda6e-7b20-4568-b154-0ed795703f2b"><con:settings/><con:parameters/><con:resource name="/line/{code}/" path="/line/{code}/" id="deae1e30-33cb-45b9-adaf-bcf88a8e46ad"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE" id="e8205d58-6bd3-4903-a3b8-04f3f7d85dbf" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="6e205219-e8f9-4f81-8243-8822adf12c7d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/{code}/" path="/{code}/" id="81d74fa0-4c56-43ab-8184-a9ef5d9fbc87"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE" id="2459ee54-2c13-41de-ab8e-19074b7fcb11" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="bbbd046f-e5bb-41e8-93c3-99349dc2551d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters><entry key="code" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method><con:method name="GET" id="e502e00c-f309-4985-a356-f6e31492c597" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="5b8f41b5-163b-4ce4-9d14-7d7212616273" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="GET" id="dc291d46-58bc-42ea-a414-69dc51fcb2dc" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="903a7903-d27d-4b36-88b9-3700b97a26e9" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="POST" id="d28e56a2-abd9-422c-8708-78585c73ef1c" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="29291ee6-7755-4573-a5ed-361f4664dd0e" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/labels/" path="/labels/" id="dd7c54f0-18f8-45e3-b980-23395cb1d023"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="5ca5c471-c810-42c9-aa59-db6d3ff6ad2a"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="eeb2291d-6917-4ea9-b419-abc02192a979" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="2837aaa3-d84a-4d46-8f27-77344cdf5308" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="GET" id="5afbc329-6ebd-4de5-9b6d-a8b2113c4be6" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="f14da484-a2c2-4720-a649-716fcd77998d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="POST" id="76f3385b-971c-479a-a0b1-173c98193658" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="33f069a9-32b5-4212-94bb-eaf190004fca" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/costcategories/" path="/costcategories/" id="fd5dc274-17cb-464d-9005-2c1a607bfe70"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="7cae3917-6bab-4259-805f-9968cdcc83ff"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="2417b2fa-66a4-4d2d-8aac-0284605f8058" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="f8014647-0a32-47d6-ad57-3bc21d0c5bf2" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="GET" id="a3ff7ded-e139-418e-a9f3-9bf6cc12e1b0" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="f725ecbb-7799-4bb3-8b3c-6d9aced5f864" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="POST" id="ebf49e80-595d-4411-9305-d464cdcf3617" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="040c3ce2-f548-47cb-a92b-783a02381fb9" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/typeofworkhours/" path="/typeofworkhours/" id="c92b37ee-c227-4a8f-8131-ecb111bdd6f9"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="eebeca22-9a07-4284-ad43-e5c1c333dba4"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="bd7cbd45-d01d-4f7b-bf9b-fb6ad2f3b637" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="3434f77c-b48a-4c6f-8a4d-7fc715d3fa80" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST" id="2b771a36-3250-43bc-83f4-5c0ebaf32092" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="12c6954c-80da-42d3-9e8f-b0e6d91dab29" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET" id="09678001-8562-44c6-884b-46cbd22eea26" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="122c64c8-6966-4d88-9588-4aba2e186c54" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/calendarexceptiontypes/" path="/calendarexceptiontypes/" id="36be882f-df1d-424b-ae58-181f418358c8"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="652198a3-4f81-4428-ae6d-6fef86e246f7"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="aa95c6f0-fa02-4a17-a987-71cf3fce7320" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="ef8e8f6e-7d01-4656-838a-5afb61e49407" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST" id="64c8eba7-3797-4336-a1a2-14d2c539f015" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="9ff57e24-b8de-451b-aeb8-6733f3e00f0b" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET" id="20e96670-3889-4dcf-9c7b-98d9da01d310" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="7c943cb8-74b0-40ac-bdce-31649aea28c0" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/calendars/" path="/calendars" id="53b8333d-e6d5-4244-9ad8-ba2b2bf1be9e"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="5c37e113-38d7-4649-b097-2ce3c5aa388c"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="0c165297-8b7e-4556-805a-638dc669bf6f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="3b16c83f-d8d4-45e1-abf6-1598a8262b25" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder><con:entry>code</con:entry></con:parameterOrder></con:request></con:method></con:resource><con:method name="POST" id="aafa7f54-03a2-4a56-a52f-0cb33ffa50ad" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="94b2303d-a85e-4000-a422-6d2b4f108c15" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//calendars/</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method><con:method name="GET" id="3ffbb01c-e428-4e7b-9120-132d8761fd7d" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="GetAllCalendars" id="a203881e-84f9-4997-8c2d-e3a814d8c157" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//calendars/</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource><con:resource name="/materialcategories/" path="/materialcategories/" id="1a86e553-6c9a-41fa-ba38-1492356f9efe"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="6d6fdbc0-3728-4674-973a-0389f4e14df5"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="013bcd64-0216-43b4-9fde-6ebdee2b05b7" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="65ef8508-efb6-4cf5-8608-0321f28325a1" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST" id="6b2b47d8-e077-423b-b916-b0e7647783c1" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="9c6cd113-31eb-4d27-8659-cdee693d8539" mediaType="application/xml" postQueryString="false"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="GET" id="d5a6ff25-28e0-4518-9caa-73e7fc618905" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="4ccdc272-8525-4faf-9551-c3a933520b6b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=D85264B46DE3E982C3D88439A58558CA</con:originalUri><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="/unittypes/" path="/unittypes/" id="ae3b7812-f8cd-488b-a19c-6e23475de6d6"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="44a4f6bd-c035-4bbb-ab99-d63423c70d59"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="2a38f708-3407-49ae-9894-2fc640f9407f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="c12bf716-bec4-411c-b342-2160da7a3e0f" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="GET" id="679dbaeb-6d11-4de0-9b1b-b85ac8188dca" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="699f645d-0363-4bd4-b794-56663e4a736e" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="POST" id="6288bf61-c3d3-4432-9321-cd0cc28e0795" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="b84de3a3-723c-44ff-8446-5fb8559f56fa" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/expenses/" path="/expenses/" id="395a8138-76ee-4b5c-9bef-65623f43cf2d"><con:settings/><con:parameters/><con:resource name="/{code}/" path="/{code}/" id="7ae48b3c-450e-4952-81aa-6eb0c29e646f"><con:settings/><con:parameters><con:parameter><con:name>code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="ef8b9102-9ff1-4ecc-a14c-7f01071c95ea" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="82ed6d22-9d2e-49f1-840e-406de1a82641" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:method name="POST" id="f3559642-17b5-4a20-8431-33cd8ab49d19" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="1272b46c-b311-44ad-9103-ab106987b68e" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method><con:method name="GET" id="f62ceb59-9fc4-4bba-a0b1-90648af2f654" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="dd9943b4-98cc-4ee6-b54d-38a323ab903f" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/bounduser/" path="/bounduser/" id="277a7b75-93e9-49a0-8df0-d2e8c92f69b0"><con:settings/><con:parameters/><con:resource name="/mytasks/" path="/mytasks/" id="5d418617-dd27-41f9-8010-8e2aa176767a"><con:settings/><con:parameters/><con:method name="GET" id="ffa1944e-1113-4d2d-b6a6-ac0d6d31d4e3" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="3e7451ec-df7c-4773-b56c-88ea619f6bfa" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/timesheets/" path="/timesheets/" id="ffe0ddd2-a431-45e6-84db-d2708132a8b1"><con:settings/><con:parameters/><con:method name="POST" id="9d84e56b-fcef-425b-a3b4-966d0d7e24d5" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType xsi:nil="true"/><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="ddfc9155-f16b-4485-8a21-8acddaf8f6b5" mediaType=""><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource><con:resource name="/timesheets/{task-code}/" path="/timesheets/{task-code}/" id="c4e5ec83-b14b-4451-b954-2fdbc03ae63c"><con:settings/><con:parameters><con:parameter><con:name>task-code</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET" id="a41e83af-15c5-409a-88ac-a1c7236c6830" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/xml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="441dc08f-683e-4ed0-bb2d-d58ab60a2889" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:28080</con:endpoint><con:parameters/></con:request></con:method></con:resource></con:resource></con:interface><con:testSuite id="450627fc-3428-4849-90c9-fa92ae981953" name="Calendar TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="71e14f2a-5ba6-4cac-b32e-4236da600832" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetACalendar TestCase" searchProperties="true"><con:description>--- Cas de test : Recherche d'un calendrier ---
+Paramètres d'entrées:
+- code : code du calendrier recherché
+Réponse : Calendrier recherché
+Description : Recherche d'un calendrier avec en paramètre son code et qui retourne le calendrier recherché a</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetACalendar" id="bba77074-b90c-4374-8c19-d82653ac9896"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//calendars/{code}/" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetACalendar" id="a203881e-84f9-4997-8c2d-e3a814d8c157" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//calendars/</con:originalUri><con:assertion type="Simple Contains" id="cddc6be6-6f11-4d73-a1ce-9683315791d7" name="Contains Code"><con:configuration><token>CALENDAR0001</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="62e3452b-0334-42a2-94e3-3bb62dc49557" name="Contains Name"><con:configuration><token>Default</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="aa4db1fc-601b-49f8-86d8-205fcbfe3890" name="XPath Match Count"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:calendar-data)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="${ACalProperties#code}" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="ACalProperties" id="376974a3-2002-45b7-8d0a-c3e838b6e809"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>code</con:name><con:value>CALENDAR0001</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b3f3aeae-af80-4244-b802-f5d4a1665421" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllCalendars TestCase" searchProperties="true"><con:description>--- Cas de test : Retouner tous les calendriers existants ---
+Paramètres d'entrées: Aucun
+Réponse : Tous les calendriers existant
+Description :  Retourne les calendriers existants de l'application</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetAllCalendars" id="5b0f27ab-d62e-40ff-8c54-53946960b63b"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//calendars" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllCalendars" id="a203881e-84f9-4997-8c2d-e3a814d8c157" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//calendars/</con:originalUri><con:assertion type="XPath Match" id="21659cca-3010-4de4-84a1-62d47c1b1f3b" name="XPath Match"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:base-calendar)</path><content>2</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="CALENDAR0001" xmlns="http://eviware.com/soapui/config"/></con:parameters><con:parameterOrder/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="cd671da6-0c68-417f-bb01-8b3b169b6631" name="Project TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ba959a20-4f88-49a4-9f6e-0b2d6f54c33c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAProject TestCase" searchProperties="true"><con:description>--- Cas de test : Recherche un projet  ---
+Paramètres d'entrées:
+- Code : code du calendrier recherché
+Réponse : Le calendrier recherché
+Description :  Retourne le calendrier recherché avec en paramètre d'entrée son code</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetAProject" id="c0ee8fa4-7c69-41d0-8936-621daddd1f18"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements/{code}/" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAProject" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:assertion type="Simple Contains" id="8b5abea7-7e4e-4d12-be7b-98e84024a2f4" name="Contains Code"><con:configuration><token>${AProjProperties#code}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="4e3e8730-1325-4f03-9769-e9af24d77c7a" name="XPath Match Count"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:order)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple Contains" id="9739080a-2685-420c-9e32-e6db9c879ea7" name="Contains Name"><con:configuration><token>Projet3</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="${AProjProperties#code}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="AProjProperties" id="8e7ecd1a-cacd-42d9-ab90-81eec15fd50f"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>code</con:name><con:value>ORDER0076</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="ac2108d7-a73d-4d7f-bf9f-b5bcc8bbd311" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllProjects TestCase" searchProperties="true"><con:description>--- Cas de test : Retourne tous les projets existants  ---
+Paramètres d'entrées : Aucun
+Réponse : Tous les projets existants
+Description :  Retourne tous les projets existants</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetAllProjects" id="4120df94-ae17-4129-a0e4-de508ef3046f"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllProjects" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:assertion type="XPath Match" id="7ea65fc5-2e15-46f6-ae84-cba64afdf517" name="XPath Match"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:order)</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="ORDER0005" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1c0efaa2-a532-4bac-b71e-0b5f38c45f05" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateAProject TestCase" searchProperties="true"><con:description>--- Cas de test : Création d'une ressource  ---
+Paramètres d'entrées:
+- code : code de la nouvelle ressource
+- nif : identifiant unique de la ressource
+- surname : nom de famille de la ressource
+- first-name : prénom de la nouvelle ressource
+Réponse : Aucune
+Description :  Création d'une nouvelle ressource avec en paramètres, le code, nif, surname et first-name du projet.
+Affichage de toutes les ressources puis vérification de la présence de la ressource nouvellement créée</con:description><con:settings/><con:testStep type="restrequest" name="POST - CreateAProject" id="92e52831-4810-4e7f-b073-2fd84ad206e9"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - CreateAProject" id="3a0dfd94-b387-44ae-9de2-5e157f827cc4" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request><![CDATA[<order-list xmlns="http://rest.ws.libreplan.org">
+   <order calendar-name="${CreateProjectProperties#name}" dependencies-constraints-have-priority="false" deadline="${CreateProjectProperties#datefin}" init-date="${CreateProjectProperties#datedebut}" name="${CreateProjectProperties#name}" code="${CreateProjectProperties#code}">
+      <labels/>
+      <material-assignments/>
+      <advance-measurements/>
+      <criterion-requirements/>
+      <children/>
+   </order>
+</order-list>]]></con:request><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=A99A282F9D9BCC123BC430C042555ACE</con:originalUri><con:credentials><con:username>wswriter</con:username><con:password>wswriter</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET - GetAllProjects Add" id="853f319d-d163-48da-9505-1fd0f88ff59c"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllProjects Add" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:assertion type="Simple Contains" id="e1b5ec43-2913-4181-9fd6-24b66147a014" name="Contains code"><con:configuration><token>${CreateProjectProperties#name}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="e1461e4c-add9-4361-989a-f61036045a15" name="XPath Match"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:order)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="ORDER0005" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="CreateProjectProperties" id="f71d00d3-e30e-47de-8407-b90664dd6eb1"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>name</con:name><con:value>Test_Project</con:value></con:property><con:property><con:name>code</con:name><con:value>ORDER0006</con:value></con:property><con:property><con:name>datedebut</con:name><con:value>2017-12-23</con:value></con:property><con:property><con:name>datefin</con:name><con:value>2018-11-10</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="41db6513-660d-4d96-aee5-32d4aa6eba42" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteAProject TestCase" searchProperties="true"><con:description>--- Cas de test : Suppression d'un projet
+Paramètres d'entrées: 
+- code : code du projet à supprimer
+Réponse : Aucune
+Description : Création puis suppression d'un projet avec vérifications à chaque étape</con:description><con:settings/><con:testStep type="restrequest" name="POST - CreateAProject" id="16450777-a365-4537-8705-3afc4cf620aa"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - CreateAProject" id="3a0dfd94-b387-44ae-9de2-5e157f827cc4" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request><![CDATA[<order-list xmlns="http://rest.ws.libreplan.org">
+   <order calendar-name="${DelProjectProperties#name}" dependencies-constraints-have-priority="false" deadline="${DelProjectProperties#datefin}" init-date="${DelProjectProperties#datedebut}" name="${DelProjectProperties#name}" code="${DelProjectProperties#code}">
+      <labels/>
+      <material-assignments/>
+      <advance-measurements/>
+      <criterion-requirements/>
+      <children/>
+   </order>
+</order-list>]]></con:request><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=A99A282F9D9BCC123BC430C042555ACE</con:originalUri><con:credentials><con:username>wswriter</con:username><con:password>wswriter</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET - GetAllProjects Add" id="42debf21-118b-4501-87be-9fb5b02eadda"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllProjects Add" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:assertion type="Simple Contains" id="12da93a8-55b2-45a1-b8e9-805f192223e3" name="Contains Code"><con:configuration><token>${DelProjectProperties#code}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="ea3bef79-e465-4cf1-9b62-4474a9fa158d" name="XPath Match"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:order)</path><content>6</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple Contains" id="b6c327f1-2042-486b-8941-4ef7d0ffd5ca" name="Contains Name"><con:configuration><token>${DelProjectProperties#name}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="ORDER0005" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="DELETE - DeleteAProject" id="12446ad8-0d2b-4b0c-b85c-a1eebcde72c8"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements/{code}/" methodName="DELETE" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="DELETE - DeleteAProject" id="5c7f7608-70eb-4bfe-89fc-d826edf30726" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=E6CC9EA0148320D50F88DB5D6C938FDF</con:originalUri><con:credentials><con:username>wswriter</con:username><con:password>wswriter</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="ORDER0007" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET - GetAllProjects Delete" id="89ad1c54-fd92-4fc1-bdd1-dd84e504e499"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//orderelements" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllProjects Delete" id="30018539-8b05-4a83-9a36-ecd5173b3d2e" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=8883625229FE67A416ACA53472B02D41</con:originalUri><con:assertion type="Simple NotContains" id="db6f842f-98b1-488c-a182-7f0323d7017e" name="Not Contains"><con:configuration><token>${DelProjectProperties#code}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="994d93bc-a5a3-47be-988e-350ab719f332" name="XPath Match"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:order)</path><content>5</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="ORDER0005" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="DelProjectProperties" id="d53e6cf9-2508-488d-8ce3-29d31e3f1ce6"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>name</con:name><con:value>Test_Project_DEL</con:value></con:property><con:property><con:name>code</con:name><con:value>ORDER0007</con:value></con:property><con:property><con:name>datedebut</con:name><con:value>2017-12-23</con:value></con:property><con:property><con:name>datefin</con:name><con:value>2018-11-10</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="953d54fb-8ac0-410f-8591-5bb11598f673" name="Resources TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="17d920ff-dfe7-49a1-ad4e-6ea75ddff740" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllResources TestCase" searchProperties="true"><con:description>--- Cas de test : Retourne toutes les ressources existantes
+Paramètres d'entrées: Aucun
+Réponse : Toutes les ressources existantes ainsi que leur information
+Description : Retourne toutes les ressources présentes en base de données</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetAllResources" id="b3c46ea6-f4b9-4bbb-bfa6-7f6d022f6747"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//resources" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllResources" id="2bc4e603-660b-4f1b-b9c5-601e733f4115" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//resources/</con:originalUri><con:assertion type="XPath Match" id="4e59ce38-8f36-4be6-ad9b-22dec3a01939" name="XPath Match Count"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:worker)</path><content>7</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="4a843d1f-e10d-4a7d-a277-a69baf10d181" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAResource TestCase" searchProperties="true"><con:description>--- Cas de test : Recherche d'une ressource
+Paramètres d'entrées:
+- code : code de la ressource
+Réponse : La ressource recherchée
+Description : Recherche une ressource avec son code et doit retourner les informations sur la ressource concerné</con:description><con:settings/><con:testStep type="restrequest" name="GET - GetAResource" id="a8de3185-87df-40bc-a0d6-b61ec01993c0"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//resources/{code}/" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAResource" id="b25e374b-63c3-46e1-91cd-f9718d82ade6" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=38DD6BA2F75AD8179DF087A2EFEBCAD6</con:originalUri><con:assertion type="Simple Contains" id="1b9e75d7-a03c-4222-a247-47e3438c7083" name="Contains Code"><con:configuration><token>${AResProperties#code}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="4a0d77de-da51-43b5-bea8-61ac7a283831" name="Contains first-name"><con:configuration><token>Worker1</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="bdf98988-5eff-4e28-93d0-e9f75db456d7" name="Contains Surname"><con:configuration><token>Gillian</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="c8fa8d6f-f32e-4527-95ff-c30ca5a0827d" name="Contains Nif"><con:configuration><token>205</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="216a8962-99eb-4444-ae32-9009e04f7fef" name="XPath Match Count"><con:configuration><path>declare namespace ns1='http://rest.ws.libreplan.org';
+count(//ns1:calendar)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="code" value="${AResProperties#code}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="AResProperties" id="26ea3c3e-2f7d-4952-85a8-35538d93a63e"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>code</con:name><con:value>WORKER0006</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="d5c41360-ea02-4e4a-b685-2c96638622a9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CreateAResource TestCase" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="POST - CreateAResource" id="11af9881-04c6-487a-b7fe-96b06f8f1e7a"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//resources" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="POST - CreateAResource" id="ff440f02-4f12-4ce1-b3fb-74892c6bfb5a" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request><![CDATA[<resource-list xmlns="http://rest.ws.libreplan.org">
+   <worker nif="${CreateResProperties#nif}" surname="${CreateResProperties#surname}" first-name="${CreateResProperties#first-name}" code="${CreateResProperties#code}">
+      <calendar capacity="1" parent="CALENDAR0001" code="RESOURCE_CALENDAR0019">
+         <calendar-exception-list/>
+         <calendar-data-list>
+            <calendar-data parent-calendar="CALENDAR0001" code="RESOURCE_CALENDAR0019-0001">
+               <hours-per-day-list/>
+            </calendar-data>
+         </calendar-data-list>
+         <calendar-availability-list>
+            <calendar-availability startDate="2017-04-28T00:00:00+02:00" code="RESOURCE_CALENDAR0019-0002"/>
+         </calendar-availability-list>
+      </calendar>
+      <criterion-satisfaction-list/>
+      <resources-cost-category-assignment-list/>
+   </worker>
+</resource-list>]]></con:request><con:originalUri>http://localhost/libreplan/common/layout/login.zul;jsessionid=760D67BBE40E11B1697F7A14085C8177</con:originalUri><con:credentials><con:username>wswriter</con:username><con:password>wswriter</con:password><con:domain>http://localhost:28080</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="GET - GetAllResources Add" id="d9140061-863c-4506-a3c6-58d8fa71f743"><con:settings/><con:config service="Projet2WS-Libreplan" resourcePath="/libreplan//ws/rest//resources" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GET - GetAllResources Add" id="2bc4e603-660b-4f1b-b9c5-601e733f4115" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:28080</con:endpoint><con:request/><con:originalUri>http://localhost/libreplan//ws/rest//resources/</con:originalUri><con:assertion type="Simple Contains" id="10498e1e-650f-4587-8cae-df198dc34362" name="Contains First Name"><con:configuration><token>${CreateResProperties#first-name}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="51e31dbd-666a-44f3-a7b5-8c85e297f398" name="Contains Code"><con:configuration><token>${CreateResProperties#code}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="9d6dd569-4833-415d-a37b-49072689ee27" name="Contains surname"><con:configuration><token>${CreateResProperties#surname}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="bb96c63d-c035-4864-a58c-5fe7cc08020c" name="Response SLA"><con:configuration><SLA>200</SLA></con:configuration></con:assertion><con:assertion type="Simple Contains" id="8af6b621-bddc-4af8-9581-8101d5b4843c" name="Contains nif"><con:configuration><token>${CreateResProperties#nif}</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>wsreader</con:username><con:password>wsreader</con:password><con:domain>http://localhost:28080/libreplan/</con:domain><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>true</con:preemptive><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="properties" name="CreateResProperties" id="200bacee-1196-46f7-b2be-53ee692cac04"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>code</con:name><con:value>WORKER0050</con:value></con:property><con:property><con:name>nif</con:name><con:value>mpo</con:value></con:property><con:property><con:name>surname</con:name><con:value>Polo</con:value></con:property><con:property><con:name>first-name</con:name><con:value>Marco</con:value></con:property></con:properties></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="COMPLEMENT" username="wsreader" password="wsreader">http://localhost:28080</con:endpoint></con:endpointStrategy><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
